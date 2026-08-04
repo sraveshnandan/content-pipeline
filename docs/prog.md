@@ -2,14 +2,21 @@
 
 ## Current Phase
 
-**Phase 1: Foundation** — 0%
+**Phase 1: Foundation** — 15%
 
 ## Completed Features
 
 - [x] Architecture & execution plan documented
-- [x] Git repo initialized and linked to GitHub
-- [x] Project structure scaffolded
+- [x] Git repo initialized and linked to GitHub (origin/main)
+- [x] Project structure scaffolded (monorepo with Turborepo)
 - [x] Documentation framework created (context.md, spec.md, prog.md)
+- [x] Fastify backend scaffolded with DI plugins (db, redis, auth, zernio)
+- [x] Next.js frontend scaffolded with Clerk auth and layout
+- [x] Drizzle ORM database schema defined (7 tables)
+- [x] Docker Compose configured for PostgreSQL + Redis
+- [x] Shared types package with Zod schemas
+- [x] Inngest client configured
+- [x] Initial commit pushed to GitHub
 
 ## Blockers
 
@@ -17,12 +24,14 @@
 
 ## Next Immediate Steps
 
-1. Set up Fastify backend with DI decorators
-2. Set up Next.js frontend with Clerk integration
-3. Configure PostgreSQL + Redis via Docker Compose
-4. Implement Inngest job queue infrastructure
-5. Build Clerk auth flow (login, callback, session)
-6. Create user model and database migrations
+1. Implement Fastify route handlers (auth, generations, posts, social connections)
+2. Build Next.js dashboard UI with sidebar navigation
+3. Set up Clerk middleware in Next.js for session management
+4. Wire up Drizzle migrations and seed scripts
+5. Create Inngest functions for AI generation jobs
+6. Implement Groq text generation endpoint
+7. Build content editor component
+8. Implement Zernio OAuth flow for social connections
 
 ## Phase Progress
 
