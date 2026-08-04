@@ -2,21 +2,22 @@
   "name": "content-pipeline",
   "private": true,
   "workspaces": [
-    "apps/*",
+    "backend",
+    "frontend",
     "packages/*"
   ],
   "scripts": {
-    "dev": "turbo dev",
-    "build": "turbo build",
-    "lint": "turbo lint",
-    "typecheck": "turbo typecheck",
-    "db:migrate": "turbo db:migrate",
-    "db:seed": "turbo db:seed",
+    "dev": "concurrently \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "build": "npm run build -w backend && npm run build -w frontend",
+    "lint": "npm run lint -w backend && npm run lint -w frontend",
+    "typecheck": "npm run typecheck -w backend && npm run typecheck -w frontend",
+    "db:migrate": "npm run migrate -w @content-pipeline/db",
+    "db:seed": "npm run seed -w @content-pipeline/db",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down"
   },
   "devDependencies": {
-    "turbo": "^2.1.0"
+    "concurrently": "^9.0.0"
   },
   "engines": {
     "node": ">=20.0.0"

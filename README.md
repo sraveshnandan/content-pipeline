@@ -54,9 +54,8 @@ See `.env.example` for all required variables.
 ## Project Structure
 
 ```
-apps/
-  web/          Next.js frontend
-  api/          Fastify backend
+backend/        Fastify API server
+frontend/       Next.js web app
 packages/
   db/           Database models & migrations (Drizzle)
   shared/       Shared types & validation (Zod)
@@ -65,7 +64,6 @@ docs/
   context.md    Architecture decisions & scope
   spec.md       Technical specifications
   prog.md       Live progress tracker
-```
 
 ## Development
 

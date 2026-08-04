@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "content-pipeline-backend",
   "private": true,
   "scripts": {
     "dev": "fastify dev -p 4000",
