@@ -1,0 +1,14 @@
+node_modules
+dist
+.next
+.env
+.env.local
+.env.*.local
+*.log
+.dockerignore
+.vscode
+.idea
+.DS_Store
+coverage
+.nyc_output
+.turbo

@@ -1,0 +1,19 @@
+{
+  "name": "@content-pipeline/db",
+  "private": true,
+  "scripts": {
+    "migrate": "drizzle-kit push",
+    "seed": "tsx scripts/seed.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.36.0",
+    "drizzle-kit": "^0.27.0",
+    "pg": "^8.13.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
