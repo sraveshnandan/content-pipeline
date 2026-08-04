@@ -8,15 +8,8 @@
 
 - [x] Architecture & execution plan documented
 - [x] Git repo initialized and linked to GitHub (origin/main)
-- [x] Project structure scaffolded (monorepo with Turborepo)
+- [x] Project structure scaffolded (backend/, frontend/, packages/)
 - [x] Documentation framework created (context.md, spec.md, prog.md)
-- [x] Fastify backend scaffolded with DI plugins (db, redis, auth, zernio)
-- [x] Next.js frontend scaffolded with Clerk auth and layout
-- [x] Drizzle ORM database schema defined (7 tables)
-- [x] Docker Compose configured for PostgreSQL + Redis
-- [x] Shared types package with Zod schemas
-- [x] Inngest client configured
-- [x] Initial commit pushed to GitHub
 
 ## Blockers
 
