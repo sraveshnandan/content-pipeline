@@ -10,14 +10,35 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@/*": ["./src/*"],
       "@content-pipeline/db": "../../packages/db/src",
       "@content-pipeline/shared": "../../packages/shared/src",
       "@content-pipeline/infra": "../../packages/infra/src"
-    }
+    },
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": ["src/**/*.ts", "next-env.d.ts"],
-  "exclude": ["node_modules", "dist", ".next"]
+  "include": [
+    "next-env.d.ts",
+    "src/**/*.ts",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    ".next"
+  ]
 }

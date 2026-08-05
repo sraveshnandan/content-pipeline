@@ -1,10 +1,10 @@
-import { auth } from "@clerk/nextjs/server"
+import { getServerSession } from "@/lib/auth"
 import { redirect } from "next/navigation"
 
 export default async function DashboardPage() {
-  const { userId } = await auth()
+  const session = await getServerSession()
 
-  if (!userId) {
+  if (!session) {
     redirect("/")
   }
 
@@ -13,8 +13,7 @@ export default async function DashboardPage() {
       <div className="flex items-center justify-between mb-8">
         <h1 className="text-2xl font-bold">Dashboard</h1>
         <div className="flex items-center gap-4">
-          <span className="text-sm text-gray-500">Welcome back</span>
-          <UserButton />
+          <span className="text-sm text-gray-500">Welcome, {session.userName}</span>
         </div>
       </div>
 
@@ -51,8 +50,4 @@ export default async function DashboardPage() {
       </div>
     </main>
   )
-}
-
-function UserButton() {
-  return <span className="text-sm text-gray-500">User</span>
 }

@@ -1,15 +1,14 @@
-import { auth } from "@clerk/nextjs/server"
 import { redirect } from "next/navigation"
-import { Sidebar } from "@/components/sidebar"
+import { getServerSession } from "@/lib/auth"
 
 export default async function DashboardLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const { userId } = await auth()
+  const session = await getServerSession()
 
-  if (!userId) {
+  if (!session) {
     redirect("/")
   }
 

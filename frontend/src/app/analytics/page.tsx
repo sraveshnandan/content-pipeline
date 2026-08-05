@@ -1,10 +1,10 @@
-import { auth } from "@clerk/nextjs/server"
+import { getServerSession } from "@/lib/auth"
 import { redirect } from "next/navigation"
 
 export default async function AnalyticsPage() {
-  const { userId } = await auth()
+  const session = await getServerSession()
 
-  if (!userId) {
+  if (!session) {
     redirect("/")
   }
 
