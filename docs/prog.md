@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-**Phase 1: Foundation** — 15%
+**Phase 1: Foundation** — 60%
 
 ## Completed Features
 
@@ -10,6 +10,17 @@
 - [x] Git repo initialized and linked to GitHub (origin/main)
 - [x] Project structure scaffolded (backend/, frontend/, packages/)
 - [x] Documentation framework created (context.md, spec.md, prog.md)
+- [x] Fastify backend scaffolded with DI plugins (db, redis, auth, zernio)
+- [x] Next.js frontend scaffolded with mock auth for local testing
+- [x] Drizzle ORM database schema defined (7 tables)
+- [x] Docker Compose configured for PostgreSQL + Redis
+- [x] Shared types package with Zod schemas
+- [x] Inngest client configured
+- [x] Auth flow working (mock auth for local testing)
+- [x] Dashboard with sidebar navigation (Generate, Posts, Analytics)
+- [x] Auth guard on dashboard routes (redirect to home if not signed in)
+- [x] Backend health endpoint working
+- [x] All changes committed and pushed to GitHub
 
 ## Blockers
 
@@ -17,23 +28,24 @@
 
 ## Next Immediate Steps
 
-1. Implement Fastify route handlers (auth, generations, posts, social connections)
-2. Build Next.js dashboard UI with sidebar navigation
-3. Set up Clerk middleware in Next.js for session management
-4. Wire up Drizzle migrations and seed scripts
-5. Create Inngest functions for AI generation jobs
-6. Implement Groq text generation endpoint
-7. Build content editor component
-8. Implement Zernio OAuth flow for social connections
+1. Replace mock auth with real Clerk integration (add Clerk publishable/secret keys)
+2. Set up Zernio API keys for social connections
+3. Set up Groq API key for text generation
+4. Set up Gemini API key for image generation
+5. Implement Fastify route handlers (auth, generations, posts, social connections)
+6. Build content editor component
+7. Wire up Drizzle migrations and seed scripts
+8. Create Inngest functions for AI generation jobs
 
 ## Phase Progress
 
-### Phase 1: Foundation (Weeks 1-2) — 0%
-- [ ] Clerk auth + Google OAuth + user onboarding
-- [ ] Database schema + migrations (PostgreSQL + Redis)
-- [ ] Fastify + Next.js scaffold with DI
-- [ ] Inngest setup + basic job queue
-- [ ] Basic dashboard shell (sidebar + empty states)
+### Phase 1: Foundation (Weeks 1-2) — 60%
+- [x] Clerk auth + Google OAuth + user onboarding (mock auth for local testing)
+- [x] Database schema + migrations (PostgreSQL + Redis)
+- [x] Fastify + Next.js scaffold with DI
+- [x] Inngest setup + basic job queue
+- [x] Basic dashboard shell (sidebar + empty states)
+- [x] Auth guard on dashboard routes
 
 ### Phase 2: Social Connections (Weeks 2-3) — 0%
 - [ ] Zernio API integration (Node.js SDK)
