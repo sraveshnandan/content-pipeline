@@ -6,8 +6,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@inngest/inngest": "^3.0.0",
-    "redis": "^4.7.0"
+    "inngest": "^4.0.0",
+    "redis": "^6.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
