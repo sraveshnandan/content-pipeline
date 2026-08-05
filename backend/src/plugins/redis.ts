@@ -2,24 +2,38 @@ import Redis from "ioredis"
 import fp from "fastify-plugin"
 
 export const redisPlugin = fp(async function (fastify) {
-  const redis = new Redis(process.env.REDIS_URL || "redis://localhost:6379", {
-    maxRetriesPerRequest: 3,
-    retryStrategy(times) {
-      return Math.min(times * 100, 3000)
-    },
-  })
+  let redis: Redis | null = null
 
-  redis.on("error", (err) => {
-    fastify.log.error(err, "Redis connection error")
-  })
+  try {
+    redis = new Redis(process.env.REDIS_URL || "redis://localhost:6379", {
+      maxRetriesPerRequest: 3,
+      retryStrategy(times) {
+        return Math.min(times * 100, 3000)
+      },
+    })
 
-  redis.on("connect", () => {
-    fastify.log.info("Redis connected")
-  })
+    redis.on("error", (err) => {
+      fastify.log.error(err, "Redis connection error")
+    })
 
-  fastify.decorate("redis", redis)
+    redis.on("connect", () => {
+      fastify.log.info("Redis connected")
+    })
+
+    await redis.connect()
+    fastify.decorate("redis", redis)
+  } catch (err) {
+    fastify.log.warn(err, "Redis connection failed, continuing without cache")
+    fastify.decorate("redis", null)
+  }
 
   fastify.addHook("onClose", async () => {
-    await redis.quit()
+    if (redis) {
+      try {
+        await redis.quit()
+      } catch {
+        // ignore
+      }
+    }
   })
 })

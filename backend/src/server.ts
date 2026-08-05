@@ -1,7 +1,6 @@
 import Fastify from "fastify"
 import cors from "@fastify/cors"
 import env from "@fastify/env"
-import pino from "pino"
 import { config } from "dotenv"
 
 import { dbPlugin } from "./plugins/db.js"
@@ -9,21 +8,10 @@ import { redisPlugin } from "./plugins/redis.js"
 import { clerkPlugin } from "./plugins/auth.js"
 import { zernioPlugin } from "./plugins/zernio.js"
 
-config()
-
-const logger = pino({
-  level: process.env.LOG_LEVEL || "info",
-  transport: {
-    target: "pino-pretty",
-    options: {
-      colorize: true,
-      ignore: "pid,hostname",
-    },
-  },
-})
+config({ path: ".env.local" })
 
 async function build() {
-  const app = Fastify({ logger })
+  const app = Fastify({ logger: true })
 
   app.register(cors, {
     origin: process.env.FRONTEND_URL || "http://localhost:3000",
